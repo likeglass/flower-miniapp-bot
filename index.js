@@ -46,3 +46,29 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Сервер запущен на порту ${PORT}`);
 });
+bot.telegram.setMyCommands([
+    {
+      command: 'start',
+      description: 'Открыть мини-приложение',
+    },
+  ]);
+  
+  bot.start((ctx) => {
+    ctx.reply('Открыть мини-приложение:', {
+      reply_markup: {
+        keyboard: [
+          [
+            {
+              text: '🌸 Перейти в Mini App',
+              web_app: {
+                url: 'https://flower-miniapp-bot.onrender.com', // 👈 твой домен от Render
+              },
+            },
+          ],
+        ],
+        resize_keyboard: true,
+        one_time_keyboard: false,
+      },
+    });
+  });
+  
