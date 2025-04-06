@@ -29,11 +29,10 @@ app.post('/webhook', (req, res) => {
   res.status(200).send('OK');
 });
 
-bot.launch();
-
+// Выше уже нужно использовать process.env.PORT
 const PORT = process.env.PORT || 3000;  // Используем переменную окружения PORT, если она есть
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту ${PORT}`);
 });
 
-
+bot.launch();
