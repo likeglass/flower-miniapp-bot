@@ -2,20 +2,28 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Mini App</title>
+  <title>Доставка цветов</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: sans-serif;
-      padding: 2rem;
+      padding: 1.5rem;
       text-align: center;
-      background-color: #fdf6f9;
+      background-color: #fff0f5;
     }
-    h1 {
-      color: #d81b60;
+    img {
+      width: 200px;
+      border-radius: 10px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      background: white;
     }
     button {
-      background-color: #d81b60;
+      background-color: #e91e63;
       color: white;
       border: none;
       padding: 1rem 2rem;
@@ -26,8 +34,41 @@
   </style>
 </head>
 <body>
-  <h1>🌸 Mini App для заказов</h1>
-  <p>Здесь будет интерфейс оформления заказа</p>
-  <button onclick="alert('Заказ отправлен!')">Отправить заказ</button>
+  <h1>🌸 Закажи букет сейчас!</h1>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Букет 1" />
+    <h2>Розовый букет</h2>
+    <p>Цена: 1500 ₽</p>
+    <button onclick="order('Розовый букет', 1500)">Заказать</button>
+  </div>
+
+  <script>
+    function order(title, price) {
+      const payload = {
+        action: 'order',
+        product: {
+          title,
+          price
+        },
+        customer: {
+          name: 'Пользователь', // временно
+          phone: '1234567890', // временно
+          address: 'Город, улица...' // временно
+        },
+        city: 'Москва'
+      };
+
+      fetch('/webhook', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        alert('Заказ отправлен!');
+      });
+    }
+  </script>
 </body>
 </html>
