@@ -1,112 +1,59 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>🌸 Доставка цветов</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Премиальный магазин цветов</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background-color: #fff0f5;
-      margin: 0;
-      padding: 1rem;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #fff7f8; padding: 20px; color: #333; }
+    header { background: #ffe0e6; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
+    header h1 { font-size: 1.5em; color: #c2185b; }
+    .promo { background: #fff0f3; padding: 10px; margin-top: 10px; border-radius: 8px; color: #d81b60; }
+    .bouquets { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
       text-align: center;
     }
-
-    h1 {
-      color: #d81b60;
-    }
-
-    .bouquet {
-      background: #fff;
-      border-radius: 10px;
-      margin: 1rem auto;
-      padding: 1rem;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .bouquet img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .bouquet h2 {
-      margin: 0.5rem 0;
-    }
-
-    input, button {
-      padding: 0.7rem;
-      font-size: 16px;
-      margin-top: 0.5rem;
-      width: 90%;
-      max-width: 300px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-
-    button {
-      background-color: #d81b60;
-      color: white;
-      cursor: pointer;
-      border: none;
-    }
-
-    .form {
-      margin-top: 2rem;
-    }
+    .card img { width: 100%; height: 150px; object-fit: cover; }
+    .card h3 { font-size: 1em; margin: 10px 0; }
+    .card p { font-weight: bold; color: #c2185b; margin-bottom: 10px; }
+    .cart-icon { position: fixed; top: 20px; right: 20px; background: #c2185b; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2em; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+    .address { margin: 20px 0; }
+    .address input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; }
   </style>
 </head>
 <body>
-  <h1>🌸 Закажи букет сейчас!</h1>
+  <div class="cart-icon">🛒</div>
 
-  <div class="bouquet" id="bouquet">
-    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Букет" />
-    <h2>Розовый букет</h2>
-    <p>Цена: <span id="price">1500</span> ₽</p>
+  <header>
+    <h1>Цветы Ры 🌸</h1>
+    <div class="promo">🎁 10% скидка на первый заказ!</div>
+  </header>
+
+  <div class="address">
+    <input type="text" placeholder="Введите адрес доставки или выберите геолокацию" />
   </div>
 
-  <div class="form">
-    <input id="name" placeholder="Ваше имя" /><br />
-    <input id="phone" placeholder="Телефон" /><br />
-    <input id="address" placeholder="Адрес доставки" /><br />
-    <input id="city" placeholder="Город" /><br />
-    <button onclick="order()">📦 Заказать</button>
+  <div class="bouquets">
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet1" alt="Bouquet"><h3>Весеннее вдохновение</h3><p>$35</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet2" alt="Bouquet"><h3>Розовый рай</h3><p>$42</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet3" alt="Bouquet"><h3>Летняя свежесть</h3><p>$39</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet4" alt="Bouquet"><h3>Нежность</h3><p>$33</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet5" alt="Bouquet"><h3>Солнечное утро</h3><p>$45</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet6" alt="Bouquet"><h3>Королевский выбор</h3><p>$55</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet7" alt="Bouquet"><h3>Шелковая любовь</h3><p>$48</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet8" alt="Bouquet"><h3>Свадебная фантазия</h3><p>$60</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet9" alt="Bouquet"><h3>Аромат роз</h3><p>$38</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet10" alt="Bouquet"><h3>День рождения</h3><p>$50</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet11" alt="Bouquet"><h3>Тропический микс</h3><p>$53</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet12" alt="Bouquet"><h3>Сиреневое облако</h3><p>$46</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet13" alt="Bouquet"><h3>Классика жанра</h3><p>$37</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet14" alt="Bouquet"><h3>Акция -15%</h3><p><s>$40</s> $34</p></div>
+    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet15" alt="Bouquet"><h3>Самовывоз</h3><p>$30</p></div>
   </div>
-
-  <script>
-    function order() {
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const address = document.getElementById('address').value;
-      const city = document.getElementById('city').value;
-      const title = "Розовый букет";
-      const price = document.getElementById('price').innerText;
-
-      if (!name || !phone || !address || !city) {
-        alert("Пожалуйста, заполните все поля");
-        return;
-      }
-
-      fetch('/webhook', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          action: 'order',
-          product: { title, price },
-          customer: { name, phone, address },
-          city
-        })
-      }).then(() => {
-        alert("🎉 Заказ отправлен! Ожидайте звонка");
-      }).catch((err) => {
-        alert("❌ Ошибка отправки заказа");
-        console.error(err);
-      });
-    }
-  </script>
 </body>
 </html>
