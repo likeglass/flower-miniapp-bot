@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Магазин цветов</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf9f8;
+      color: #333;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1556228453-bfdf522f1e8b') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+    }
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      background-color: #fff0f3;
+    }
+    .actions img {
+      width: 180px;
+      border-radius: 12px;
+    }
+    .filters, .catalog {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .filters {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .bouquet-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .bouquet {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .bouquet img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .bouquet h3 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .bouquet p {
+      margin: 0.5rem;
+    }
+    .footer {
+      background: #f1f1f1;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+    .contact-buttons {
+      margin-top: 1rem;
+    }
+    .contact-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      background: #d81b60;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Магазин цветов « \xabPremium Blooms»</h1>
+  </header>
+
+  <section class="actions">
+    <img src="https://images.unsplash.com/photo-1542353436-312f0f39d87f" alt="Акция 1" />
+    <img src="https://images.unsplash.com/photo-1550418290-a8d86ad6745c" alt="Акция 2" />
+    <img src="https://images.unsplash.com/photo-1587451034207-56ef0b4d7a49" alt="Клиенты" />
+  </section>
+
+  <section class="filters">
+    <h2>Фильтр по цене</h2>
+    <label>от <input type="number" value="500" /> до <input type="number" value="5000" /> руб.</label>
+  </section>
+
+  <section class="catalog">
+    <h2>Все букеты</h2>
+    <div class="bouquet-list">
+      <div class="bouquet">
+        <img src="https://images.unsplash.com/photo-1502741126161-b048400d3050" />
+        <h3>Танец любви</h3>
+        <p>1200 руб.</p>
+      </div>
+      <div class="bouquet">
+        <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094" />
+        <h3>Эллинор</h3>
+        <p>950 руб.</p>
+      </div>
+      <div class="bouquet">
+        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2" />
+        <h3>Лесная сказка</h3>
+        <p>1400 руб.</p>
+      </div>
+      <!-- Можно добавить еще букеты по аналогии -->
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>Свяжитесь с нами</p>
+    <div class="contact-buttons">
+      <a href="https://t.me/flowerworld" target="_blank">Телеграм</a>
+      <a href="https://wa.me/79999999999" target="_blank">WhatsApp</a>
+    </div>
+    <p>Сделано с любовью в Flower MiniApp</p>
+  </div>
+</body>
+</html>

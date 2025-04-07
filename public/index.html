@@ -1,59 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Премиальный магазин цветов</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #fff7f8; padding: 20px; color: #333; }
-    header { background: #ffe0e6; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
-    header h1 { font-size: 1.5em; color: #c2185b; }
-    .promo { background: #fff0f3; padding: 10px; margin-top: 10px; border-radius: 8px; color: #d81b60; }
-    .bouquets { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      overflow: hidden;
-      text-align: center;
-    }
-    .card img { width: 100%; height: 150px; object-fit: cover; }
-    .card h3 { font-size: 1em; margin: 10px 0; }
-    .card p { font-weight: bold; color: #c2185b; margin-bottom: 10px; }
-    .cart-icon { position: fixed; top: 20px; right: 20px; background: #c2185b; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2em; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
-    .address { margin: 20px 0; }
-    .address input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; }
-  </style>
-</head>
-<body>
-  <div class="cart-icon">🛒</div>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Доставка Цветов</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Премиальные букеты с доставкой</h1>
+      <p>Авторские композиции ко всем случаям жизни</p>
+    </header>
 
-  <header>
-    <h1>Цветы Ры 🌸</h1>
-    <div class="promo">🎁 10% скидка на первый заказ!</div>
-  </header>
+    <section class="specials">
+      <h2>🎉 Акции</h2>
+      <div class="banner">
+        <p>Скидка 10% на первый заказ!</p>
+        <p>🎂 Букет на день рождения — со сладким сюрпризом!</p>
+        <p>🏢 Самовывоз — минус 15%</p>
+      </div>
+    </section>
 
-  <div class="address">
-    <input type="text" placeholder="Введите адрес доставки или выберите геолокацию" />
-  </div>
+    <section class="filters">
+      <h3>Фильтр по цене</h3>
+      <label>
+        <input type="range" min="500" max="5000" value="2500" step="100" />
+        <span>до 2500 ₽</span>
+      </label>
+    </section>
 
-  <div class="bouquets">
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet1" alt="Bouquet"><h3>Весеннее вдохновение</h3><p>$35</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet2" alt="Bouquet"><h3>Розовый рай</h3><p>$42</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet3" alt="Bouquet"><h3>Летняя свежесть</h3><p>$39</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet4" alt="Bouquet"><h3>Нежность</h3><p>$33</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet5" alt="Bouquet"><h3>Солнечное утро</h3><p>$45</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet6" alt="Bouquet"><h3>Королевский выбор</h3><p>$55</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet7" alt="Bouquet"><h3>Шелковая любовь</h3><p>$48</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet8" alt="Bouquet"><h3>Свадебная фантазия</h3><p>$60</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet9" alt="Bouquet"><h3>Аромат роз</h3><p>$38</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet10" alt="Bouquet"><h3>День рождения</h3><p>$50</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet11" alt="Bouquet"><h3>Тропический микс</h3><p>$53</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet12" alt="Bouquet"><h3>Сиреневое облако</h3><p>$46</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet13" alt="Bouquet"><h3>Классика жанра</h3><p>$37</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet14" alt="Bouquet"><h3>Акция -15%</h3><p><s>$40</s> $34</p></div>
-    <div class="card"><img src="https://source.unsplash.com/featured/?bouquet15" alt="Bouquet"><h3>Самовывоз</h3><p>$30</p></div>
-  </div>
-</body>
+    <main class="catalog">
+      <!-- Товары -->
+      <div class="product">
+        <img src="https://via.placeholder.com/300x300?text=Букет+%E2%80%9CТанец+%D0%9B%D1%8E%D0%B1%D0%B2%D0%B8%E2%80%9D" alt="Букет 1" />
+        <h4>Букет "Танец Любви"</h4>
+        <p class="price">2 300 ₽</p>
+        <button>Подробнее</button>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x300?text=Букет+%E2%80%9CВосхищение%E2%80%9D" alt="Букет 2" />
+        <h4>Букет "Восхищение"</h4>
+        <p class="price">1 900 ₽</p>
+        <button>Подробнее</button>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x300?text=Букет+%E2%80%9CАвгуст%E2%80%9D" alt="Букет 3" />
+        <h4>Букет "Август"</h4>
+        <p class="price">1 200 ₽</p>
+        <button>Подробнее</button>
+      </div>
+      <!-- Добавишь еще букеты таким же блоком -->
+    </main>
+
+    <footer>
+      <p>☎️ WhatsApp: <a href="https://wa.me/79999999999">+7 (999) 999-99-99</a></p>
+      <p>Telegram: <a href="https://t.me/flowerworld">@flowerworld</a></p>
+    </footer>
+  </body>
 </html>
