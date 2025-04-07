@@ -2,71 +2,109 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Доставка цветов</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌸 Доставка цветов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: sans-serif;
-      padding: 1.5rem;
-      text-align: center;
       background-color: #fff0f5;
-    }
-    img {
-      width: 200px;
-      border-radius: 10px;
-    }
-    .card {
-      border: 1px solid #ddd;
+      margin: 0;
       padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 10px;
-      background: white;
+      text-align: center;
     }
-    button {
-      background-color: #e91e63;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
+
+    h1 {
+      color: #d81b60;
+    }
+
+    .bouquet {
+      background: #fff;
+      border-radius: 10px;
+      margin: 1rem auto;
+      padding: 1rem;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .bouquet img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .bouquet h2 {
+      margin: 0.5rem 0;
+    }
+
+    input, button {
+      padding: 0.7rem;
       font-size: 16px;
+      margin-top: 0.5rem;
+      width: 90%;
+      max-width: 300px;
+      border: 1px solid #ddd;
       border-radius: 8px;
+    }
+
+    button {
+      background-color: #d81b60;
+      color: white;
       cursor: pointer;
+      border: none;
+    }
+
+    .form {
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <h1>🌸 Закажи букет сейчас!</h1>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Букет 1" />
+  <div class="bouquet" id="bouquet">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Букет" />
     <h2>Розовый букет</h2>
-    <p>Цена: 1500 ₽</p>
-    <button onclick="order('Розовый букет', 1500)">Заказать</button>
+    <p>Цена: <span id="price">1500</span> ₽</p>
+  </div>
+
+  <div class="form">
+    <input id="name" placeholder="Ваше имя" /><br />
+    <input id="phone" placeholder="Телефон" /><br />
+    <input id="address" placeholder="Адрес доставки" /><br />
+    <input id="city" placeholder="Город" /><br />
+    <button onclick="order()">📦 Заказать</button>
   </div>
 
   <script>
-    function order(title, price) {
-      const payload = {
-        action: 'order',
-        product: {
-          title,
-          price
-        },
-        customer: {
-          name: 'Пользователь', // временно
-          phone: '1234567890', // временно
-          address: 'Город, улица...' // временно
-        },
-        city: 'Москва'
-      };
+    function order() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const address = document.getElementById('address').value;
+      const city = document.getElementById('city').value;
+      const title = "Розовый букет";
+      const price = document.getElementById('price').innerText;
+
+      if (!name || !phone || !address || !city) {
+        alert("Пожалуйста, заполните все поля");
+        return;
+      }
 
       fetch('/webhook', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          action: 'order',
+          product: { title, price },
+          customer: { name, phone, address },
+          city
+        })
       }).then(() => {
-        alert('Заказ отправлен!');
+        alert("🎉 Заказ отправлен! Ожидайте звонка");
+      }).catch((err) => {
+        alert("❌ Ошибка отправки заказа");
+        console.error(err);
       });
     }
   </script>
